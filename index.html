@@ -1,1 +1,112 @@
-Hello Wrold
+<html ng-app="store">
+  <head>
+  	<!-- link rel="stylesheet" type="text/css" href="bootstrap.min.css"-->
+      <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="star.css">
+  </head>
+  <style>
+  body {
+    background-color: #A9E2F3;
+  }
+  h1 {
+
+  }
+  h2 {
+    background-color: #E6E6E6;
+  }
+  col-sm-6 {
+    border: blue;
+  }
+  </style>
+  <body>
+  	<div ng-controller="StoreController as store">
+      <h1 class="text-center">A N G U L A R&nbsp; J S &nbsp; S T O R E</h1>
+      <!-- PRODUCTS -->
+      <ul class="list-group">
+        <li class="list-group-item col-sm-12" ng-repeat="product in store.products | orderBy: '-price'">
+      	  <h2>
+            <i class="fa fa-tag"></i>
+            {{product.name}} 
+      		  <em class="pull-right">{{product.price | currency}} </em>
+          </h2>
+            <!-- Image Gallery  -->
+            <div class="gallery col-sm-4">
+              <div class="img-wrap">
+                <img ng-src="{{product.images[0]}}" />
+                <br><br>
+              </div>
+              <ul class="img-thumbnails clearfix">
+                <style>
+                .image {
+                  width: 100%;
+                }
+                </style>
+                <li class="small-image pull-left thumbnail" ng-repeat="product.image.length > 0">
+                  <img ng-src="{{image}}">
+                </li>
+              </ul>
+            </div>
+            <!-- Tabs -->
+            <section ng-controller="PanelController as panel">
+              <ul class="nav nav-pills col-sm-6">
+                <li ng-class="{ active:panel.isSelected(1)}">
+                  <a href ng-click="panel.selectTab(1)">Description</a>
+                </li>
+                <li ng-class="{ active:panel.isSelected(2)}">
+                  <a href ng-click="panel.selectTab(2)">Specifications</a>
+                </li>
+                <li ng-class="{ active:panel.isSelected(3)}">
+                  <a href ng-click="panel.selectTab(3)">Reviews</a>
+                </li>
+              </ul>
+              <div class="panel col-sm-6" ng-show="panel.isSelected(1)">
+                <h3><b>Description:</b></h3> 
+                  <p>{{product.description}}</p>
+              </div>
+              <div class="panel col-sm-6" ng-show="panel.isSelected(2)">
+                <h3><b>Specs:</b></h3>
+                  <p><b>Weight: </b>{{product.weight}}</p>
+                  <p><b>Color: </b>{{product.color}}</p>
+                  <p><b>In Stock: </b>{{product.available}}</p>
+              </div>
+              <div class="panel col-sm-6" ng-show="panel.isSelected(3)">
+                <h3><i class="fa fa-weixin"></i> Past Reviews:</h3>
+                  <form name="reviewForm" ng-controller="ReviewController as reviewCtrl"
+                                          ng-submit="reviewForm.$valid && reviewCtrl.addReview(product)" novalidate>
+                  <blockquote ng-repeat="review in product.reviews">
+                    <b>{{review.ratings}} Star(s): </b>                    
+                    {{review.body}}<br>
+                    <cite>-{{review.author}} </cite>
+                  </blockquote>
+                  <h4>Leave a Review:<div ng-init="rating = star.rating + 1"></div>
+                    <div class="star-rating" star-rating rating-value="rating"
+                     data-max="5" on-rating-selected="rateFunction(rating)"></div></h4>
+                    <label>Rate Product:</label>
+                    <select ng-model="reviewCtrl.review.ratings" required>
+                      <option value="1">1 out of 5</option>
+                      <option value="2">2 out of 5</option>
+                      <option value="3">3 out of 5</option>
+                      <option value="4">4 out of 5</option>
+                      <option value="5">5 out of 5</option>
+                    </select><br>
+                    <label>Comments:</label>
+                    <textarea ng-model="reviewCtrl.review.body" required></textarea><br>
+                    <label>Your Name:</label>
+                    <input ng-model="reviewCtrl.review.author" type="text" required />
+                    <input type="submit" value="Submit" />
+                  </form>
+                </div>
+            </section>
+            <button class="btn btn-primary col-sm" ng-show="product.canPurchase"
+                                                  ng-click="count = count+1" ng-init ="count =0">Add to Cart</button><br><br><i class="fa fa-shopping-cart"></i>: ({{count}})
+          </li>
+        </ul>
+    </div>
+
+  	<script type="text/javascript" src="angular.min.js"></script>
+  	<script type="text/javascript" src="app.js"></script>
+    <script type="text/javascript" src="super.js"></script>
+  </body>
+
+</html>
