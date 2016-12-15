@@ -32,8 +32,6 @@ body {
 
 .dropdown:hover .dropdown-content {
     display: block;
-	
-    color: white;
 }
 
 
