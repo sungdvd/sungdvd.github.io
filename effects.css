@@ -109,17 +109,19 @@ background: #999;
 
 
 
-.header {
-  padding: 20px 5%;
-  top: 30%;
-  font-family: 'Pacifico', cursive; 
-  font-size: 24pt;
-  text-align: center;
-  text-shadow: -3px 5px 5px #999;
-  position:absolute;
-  border-radius: 3px;
-  left: 30%;
-  border-color:#000000;
+@media only screen and (max-width: 60em) {
+	.header {
+	  padding: 20px 5%;
+	  top: 30%;
+	  font-family: 'Pacifico', cursive; 
+	  font-size: 24pt;
+	  text-align: center;
+	  text-shadow: -3px 5px 5px #999;
+	  position:absolute;
+	  border-radius: 3px;
+	  left: 30%;
+	  border-color:#000000;
+	}
 }
 
 
