@@ -11,6 +11,12 @@ body {
   opacity: 0.85;
 }
 
+.img-responsive {
+   max-width: 100%;
+   height: auto;
+   display:block;
+}
+
 
 /* Menu Styling */
 
