@@ -1,20 +1,16 @@
 /* Initial body */
 body {
-  background: url('black-min.jpg') no-repeat 50% 50% fixed; 
-  background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  -webkit-background-size: cover;
+  left: 0;
+  margin: 0;
+  overflow: hidden;
+  position: relative;
+  background-attachment: fixed;
+  background-position: 8% 20%; 
+  background-image: url('black-min.jpg');
 }
 
 .modal-dialog {
   opacity: 0.85;
-}
-
-.img-responsive {
-   max-width: 100%;
-   height: auto;
-   display:block;
 }
 
 
@@ -27,10 +23,10 @@ body {
 
 .dropdown-content {
     display: none;
-    font-size: 20px;
     position: absolute;
-    opacity: 0.9;
+    opacity: 0.7;
     min-width: 120px;
+    box-shadow: 8px 8px 8px rgba(0,0,0,0.2);
     padding: 12px 16px;
     z-index: 0;
 }
@@ -109,19 +105,17 @@ background: #999;
 
 
 
-@media only screen and (max-width: 60em) {
-	.header {
-	  padding: 20px 5%;
-	  top: 30%;
-	  font-family: 'Pacifico', cursive; 
-	  font-size: 24pt;
-	  text-align: center;
-	  text-shadow: -3px 5px 5px #999;
-	  position:absolute;
-	  border-radius: 3px;
-	  left: 30%;
-	  border-color:#000000;
-	}
+.header {
+  padding: 20px 5%;
+  top: 30%;
+  font-family:courier; 
+  font-size: 24pt;
+  text-align: center;
+  text-shadow: -3px 5px 5px #999;
+  position:absolute;
+  border-radius: 3px;
+  left: 30%;
+  border-color:#000000;
 }
 
 
