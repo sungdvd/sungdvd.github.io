@@ -1,110 +1,199 @@
-<html ng-app="store">
+<!DOCTYPE html>
+<html lang="en-US">
   <head>
-  	<!-- link rel="stylesheet" type="text/css" href="bootstrap.min.css"-->
-      <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="star.css">
+    <meta charset="UTF-8">
+    <title>David Sung</title>
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="effects.css" />
+    <script type="text/javscript" src="app.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Pacifico">
+    <link rel="icon" href="https://cdn2.iconfinder.com/data/icons/ourea-icons/256/Mountain.png">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
   </head>
-  <style>
-  body, head {
-    background-color: #A9E2F3;
-  }
-  h2 {
-    background-color: #E6E6E6;
-  }
-  col-sm-6 {
-    border: blue;
-  }
-  </style>
-  <body>
-  	<div ng-controller="StoreController as store">
-      <h1 class="text-center">AngularJS Store (In Progress)</h1>
-      <h2 class="text-center">Meanwhile, <a href="myWebsite">click here</a> to check out my website.</h2>
-      <!-- PRODUCTS -->
-      <ul class="list-group">
-        <li class="list-group-item col-sm-12" ng-repeat="product in store.products | orderBy: '-price'">
-      	  <h2>
-            <i class="fa fa-tag"></i>
-            {{product.name}} 
-      		  <em class="pull-right">{{product.price | currency}} </em>
-          </h2>
-            <!-- Image Gallery  -->
-            <div class="gallery col-sm-4">
-              <div class="img-wrap">
-                <img ng-src="{{product.images[0]}}" />
-                <br><br>
-              </div>
-              <ul class="img-thumbnails clearfix">
-                <style>
-                .image {
-                  width: 100%;
-                }
-                </style>
-                <li class="small-image pull-left thumbnail" ng-repeat="product.image.length > 0">
-                  <img ng-src="{{image}}">
-                </li>
-              </ul>
+ 
+  
+<body>  
+       <!-- Menu -->
+       <div class="dropdown">
+         <div class="icon-menu">
+          <h3><i class="fa fa-align-justify"><font face="Courier" color="black"><b> menu</b></font></i></h3>
+           <div class="dropdown-content">
+             <p class="fade-in2" data-toggle="modal" data-target="#aboutMe">About</p>
+             <p class="fade-in2" data-toggle="modal" data-target="#projects">Projects</p>
+             <p class="fade-in2" data-toggle="modal" data-target="#resume">Resume</p>
+             <p class="fade-in2" data-toggle="modal" data-target="#contact">Contact</p>
+           </div> 
+         </div>
+       </div>
+            
+                
+       <div class="header fade-in">
+        <big>David&nbsp;Sung <br>
+        &nbsp;<b>Web&nbsp;Developer<br></b></big>
+        <img class="icon" alt="logo" src="seal.png" height ="100">
+       </div>
+            
+        <div id="aboutMe" class="modal fade" role="dialog">
+         <div class="modal-dialog">     
+          <b><h2 align="center"><font face="Courier" color="#00000">About Me</font></h2></b>
+          <!-- Modal content-->
+          <div class="modal-content">
+           <div class="modal-header">
+             <div class="modal-body">
+              <img class="fade-in" alt="logo" height ="215" width="300" style="float: left; padding-right: 25px; padding-bottom: 25px; border: none;" src="sungpic.jpg">
+               <p id = "column-11"><i>Welcome to my website. My name is <b>David Sung</b> and I'm a UC Berkeley graduate studying Computer Science and Cognitive Science with a focus on User Experience and Web Development. 
+               </i></p><br>
+               <p><i>I started this page as a personal project to hone my Web Developing skills, something I got interested way back in middle-school toying around with MySpace layouts. This website was initially created from scratch using entirely <b>HTML/CSS</b> and custom <b>JavaScript/jQuery</b> functions to animate elements on the page. 
+               To familiarize myself with different JavaScript Frameworks and play around with some Google APIs, I decided to integrate the BootStrap framework into the website to clean up a some of the code along with the design. 
+               Feel free to check out some of my other projects in the menu. 
+                </i></p> <br>
+                <p id = "column-12"><i>Regarding my professional experience, I had the chance to work as a Web Developer for the 
+                <b>Cal Alumni Association</b> at <b>UC Berkeley</b> for over a year under the Grad Division Department where I teamed with other back-end developers and designers to
+                revamp the website.
+                I also had the chance to intern at a small Information Technology start-up in Santa Monica as a Front-End Web 
+                Development intern last summer where I mainly worked with HTML/CSS and JavaScript to create data web-based reports for schools in the Bay area.
+                With my passion for design and the web, I plan on working a couple years as a <b>Front-End Web Developer</b> as I transition into the 
+                <b>Full-Stack Developer</b> role once I am more knowledgeable of the back-end part of the web. I am constantly looking for new ways to improve; if you'd like to get in touch regarding any professional opportunities in front-end, UI/UX Design, my contact information can be found in the dropdown menu!
+                </i>
+                </p>
+               </div>
+              <div class="modal-footer">
+             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
             </div>
-            <!-- Tabs -->
-            <section ng-controller="PanelController as panel">
-              <ul class="nav nav-pills col-sm-6">
-                <li ng-class="{ active:panel.isSelected(1)}">
-                  <a href ng-click="panel.selectTab(1)">Description</a>
-                </li>
-                <li ng-class="{ active:panel.isSelected(2)}">
-                  <a href ng-click="panel.selectTab(2)">Specifications</a>
-                </li>
-                <li ng-class="{ active:panel.isSelected(3)}">
-                  <a href ng-click="panel.selectTab(3)">Reviews</a>
-                </li>
-              </ul>
-              <div class="panel col-sm-6" ng-show="panel.isSelected(1)">
-                <h3><b>Description:</b></h3> 
-                  <p>{{product.description}}</p>
+           </div>
+          </div>
+         </div>
+        </div>
+
+
+
+        <div id="projects" class="modal fade" role="dialog">
+          <div class="modal-dialog">
+          <b><h2 align="center"><font face="Courier" color="#000000">Projects</font></h2></b>
+              <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-header">
+                <p>
+                <h3>Dashboards (HTML/CSS/jQuery/JavaScript)</h3>
+                <img class="alignleft size-full wp-image-247" alt="logo" height="200" width="250" style="float: left; padding-right: 25px; border: nonel" src="dashboard.png">
+                <ul>
+                      <li>Worked on re-designing the dashboards and their contents which was featured on their site.</li><br>
+                      <li>Mainly used HTML/CSS and jQuery along with JavaScript to animate elements on the page.</li><br>
+                      <li>Check out the finished work <a href="https://schoolzilla.com/what-is-schoolzilla/dashboard-library/" target="_blank">here!</a></li>
+                </ul>
+                </p>
+                <br>
+                <br>
+                <hr />
+                <p>
+                <h3>Personal Website (HTML/CSS/JavaScript/jQuery)</h3><br>
+                <img class="alignleft size-full wp-image-247" alt="logo" height="200" width="200" style="float: left; padding-right: 25px; border: none;" src="http://pubpages.unh.edu/~jpf1/image8.jpeg">
+                <ul>
+                        <li>Coded website from scratch using HTML/CSS and Javascript/jQuery functions to animate elements on the page.</li><br> 
+                        <li>Integrated BootStrap to make web content responsive across all platforms and to clean up code.</li><br>
+                        <li>You're currently using this project !</li><br>
+                </ul>
+                </p>
+                <br>
+                <hr/>
+                
+                <p>
+                <h3>AngularJS Store (JavaScript/AngularJS))</h3><br>
+                <img class="alignleft size-full wp-image-247" alt="logo" height="200" style="float: left; padding-right: 25px; border: none;" src="angular.png">
+                <ul>
+                        <li>Designed an online store using AngularJS, using custom directives and taking advantage of dependency injection to incorporate multiple modules.</li><br>
+                        <li>Took advantage of AngularJS's two-way data binding feature to implement an interactive ratings system where users can post reviews which is then updated live to be viewed on the site. </li><br>
+                </ul>
+                </p>
+                <br>
+                <hr/>
+                
+                <p>
+                <h3>File and Folder Compression (Java)</h3><br>
+                <img class="alignleft size-full wp-image-247" alt="logo" height ="200" style="float: left; padding-right: 25px; padding-bottom: 15px; border: none;" src="casd.png">
+                <ul>
+                        <li>Created a program that compresses all files in a specified folder by reassigning the most frequently occurring bits to shorter bits (Huffman Encoding Algorithm)</li><br>
+                        <li>Designed a decompressor that, given a compressed file, will return the original file with no loss</li><br>
+                </ul>
+                </p>
+                <br>
+                <br>
+                <hr/>
+                
+                <p>
+                <h3>MapReduce (Python/Spark)</h3><br>
+                <img class="alignleft size-full wp-image-247" alt="logo" height ="190" width="190" style="float: left; padding-right: 25px; border: none;" src="python.png">
+                <ul>
+                        <li>Developed a depth-map generator that, given the left-eye and right-eye views of an image, will generate an image where each pixel is a function of its distance from the viewer (C)</li><br>
+                        <li>Designed an autostereogram generator that, given a depth-map, will output a 3D representation of the image (MIPS</li><br>
+                </ul>
+                </p>
+                <br>
+                <hr/>       
+                <p>
+                <h3>African Alumni Project (HTML/CSS)</h3><br>
+                <img class="alignleft size-full wp-image-247" alt="logo" height ="220" width="300" style="float: left; padding-right: 25px; border: none;" src="african.png">
+                <ul>
+                        <li>Worked on front-end for the African Alumni Assocation website using WordPress plug-ins/themes</li><br>
+                        <li>Revamped the website by reformatting the home page, installing the carousel you see on the web-page, 
+                        and making the website mobile friendly and functional across all web browsers.</li><br>
+                        <li>Launched the <a href="http://africanalumni.berkeley.edu/africa-connections/" target="_blank">'Africa Connections'</a> 
+                        portion of the website, created by converting website mock-up into HTML/CSS to share current events about 
+                        how some of our University partners are staying connected all throughout the African Diaspora.</li><br>
+                        <li>Feel free to visit the website which can be found <a href="http://africanalumni.berkeley.edu" target="_blank">here</a>.</li><br>
+                </ul>
+                </p>
+                <br>
+                
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
               </div>
-              <div class="panel col-sm-6" ng-show="panel.isSelected(2)">
-                <h3><b>Specs:</b></h3>
-                  <p><b>Weight: </b>{{product.weight}}</p>
-                  <p><b>Color: </b>{{product.color}}</p>
-                  <p><b>In Stock: </b>{{product.available}}</p>
-              </div>
-              <div class="panel col-sm-6" ng-show="panel.isSelected(3)">
-                <h3><i class="fa fa-weixin"></i> Past Reviews:</h3>
-                  <form name="reviewForm" ng-controller="ReviewController as reviewCtrl"
-                                          ng-submit="reviewForm.$valid && reviewCtrl.addReview(product)" novalidate>
-                  <blockquote ng-repeat="review in product.reviews">
-                    <b>{{review.ratings}} Star(s): </b>                    
-                    {{review.body}}<br>
-                    <cite>-{{review.author}} </cite>
-                  </blockquote>
-                  <h4>Leave a Review:<div ng-init="rating = star.rating + 1"></div>
-                    <div class="star-rating" star-rating rating-value="rating"
-                     data-max="5" on-rating-selected="rateFunction(rating)"></div></h4>
-                    <label>Rate Product:</label>
-                    <select ng-model="reviewCtrl.review.ratings" required>
-                      <option value="1">1 out of 5</option>
-                      <option value="2">2 out of 5</option>
-                      <option value="3">3 out of 5</option>
-                      <option value="4">4 out of 5</option>
-                      <option value="5">5 out of 5</option>
-                    </select><br>
-                    <label>Comments:</label>
-                    <textarea ng-model="reviewCtrl.review.body" required></textarea><br>
-                    <label>Your Name:</label>
-                    <input ng-model="reviewCtrl.review.author" type="text" required />
-                    <input type="submit" value="Submit" />
-                  </form>
+             </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="resume" class="modal fade" role="dialog">
+          <div class="modal-dialog">
+          <b><h2 align="center"><font id="modal-title" face="Courier" color="#000000">Resume</font></h2></b>
+            <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-body">
+                <div class="col-md-offset-2">
+                <p><h3>View Mode (PDF): <a href="sung.pdf" target="_blank" class=".col-md"><i class="fa fa-file-pdf-o"></i></a></h3>
+                <br><a href="sung.pdf" download><button type="button" class="btn btn-default btn-sm">
+                <span class="glyphicon glyphicon-download-alt"></span> Download Resume</button></a>
+                </p>
                 </div>
-            </section>
-            <button class="btn btn-primary col-sm" ng-show="product.canPurchase"
-                                                  ng-click="count = count+1" ng-init ="count =0">Add to Cart</button><br><br><i class="fa fa-shopping-cart"></i>: ({{count}})
-          </li>
-        </ul>
-    </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
 
-  	<script type="text/javascript" src="angular.min.js"></script>
-  	<script type="text/javascript" src="app.js"></script>
-    <script type="text/javascript" src="super.js"></script>
-  </body>
 
+        <div id="contact" class="modal fade" role="dialog">
+          <div class="modal-dialog">
+            <b><h2 align="center"><font face="Courier" color="#000000">Contact Me</font></h2></b>
+            <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-body">
+                <p><h3><b><i class="fa fa-envelope-o"></i></b>: sungdvd@berkeley.edu</h3>
+                <h3><b><i class="fa fa-phone-square"></i>:</b> 1-818-271-0590</h3>
+                <h3><b>Linked-In:</b> <a href="https://www.linkedin.com/in/sungdavid" target="_blank"><i class="fa fa-linkedin"></i></a></h3>
+                </p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+</body>
 </html>
