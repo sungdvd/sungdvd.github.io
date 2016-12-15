@@ -106,10 +106,10 @@ background: #999;
 
 .header {
   padding: 20px 5%;
-  font-family:Ubuntu; 
+  font-family:Arial; 
   margin: auto;
-  top: 50%;
-  left: 50%;
+  top: 30%;
+  left: 30%;
   font-size: 24pt;
   text-align: center;
   text-shadow: -3px 5px 5px #999;
