@@ -23,7 +23,6 @@ body {
 .dropdown-content {
     display: none;
     font-size: 20px;
-    color: white;
     position: absolute;
     opacity: 0.9;
     min-width: 120px;
@@ -33,6 +32,8 @@ body {
 
 .dropdown:hover .dropdown-content {
     display: block;
+	
+    color: white;
 }
 
 
