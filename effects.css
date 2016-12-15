@@ -1,11 +1,10 @@
 /* Initial body */
 body {
-  left: 0;
-  margin: 0;
   overflow: hidden;
   position: relative;
   background-attachment: fixed;
-  background-position: 8% 20%; 
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
   background-image: url('black-min.jpg');
 }
 
