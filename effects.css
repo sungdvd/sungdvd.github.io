@@ -1,6 +1,7 @@
 /* Initial body */
 body {
-  background: url('black-min.jpg') no-repeat 50% 50% fixed; 
+  background: url('') no-repeat 50% 50% fixed; 
+  background-color: #89cff0;
   background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
