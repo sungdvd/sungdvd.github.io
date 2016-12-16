@@ -102,8 +102,9 @@ background: #999;
 }
 
 .p1 {
-  margin-left: auto;
-  margin-right: auto;
+    display: block;
+    margin: auto;
+    width: 40%;
 }
 
 .header {
