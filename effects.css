@@ -7,6 +7,10 @@ body {
   -webkit-background-size: cover;
 }
 
+h3 {
+  font-family: 'Lobster';
+}
+
 .modal-dialog {
   opacity: 0.85;
 }
