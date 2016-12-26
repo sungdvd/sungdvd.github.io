@@ -8,7 +8,7 @@ body {
 }
 
 h3 {
-    font-family: Lobster, Monospace;
+    font-family: Lobster !important;
 }
 
 .modal-dialog {
@@ -26,6 +26,7 @@ h3 {
 .dropdown-content {
     display: none;
     font-size: 20px;
+    font-family: courier;
     position: absolute;
     opacity: 0.9;
     min-width: 120px;
@@ -128,7 +129,7 @@ background: #999;
 .icon-menu {
   color: #000;
   cursor: pointer;
-  font-family: Lobster;
+  font-family: courier;
   font-size: 16px;
   padding-bottom: 25px;
   padding-left: 25px;
