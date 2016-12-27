@@ -7,8 +7,8 @@ body {
   -webkit-background-size: cover;
 }
 
-h3 {
-    font-family: Lobster !important;
+.font2 {
+    font-family: Lobster;
 }
 
 .modal-dialog {
